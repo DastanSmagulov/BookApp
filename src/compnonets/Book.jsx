@@ -1,12 +1,12 @@
-import * as React from "react";
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import * as React from "react";
 
 export default function Book(props) {
   return (
-    <Card sx={{maxWidth: 345, marginTop:10 }}>
+    <Card sx={{marginTop:10 }}>
       <Typography sx={{textAlign:"center", maxWidth:250}} >{props.book.title}</Typography>
       <CardMedia
         sx={{ width: 250,
@@ -14,7 +14,7 @@ export default function Book(props) {
         image={props.book.image_url}
         alt="book-image"
       ></CardMedia>
-      <Button size="small">Add to Favourites</Button>
+      <Button onClick={()=>props.addToFavourites(props.book)} size="small">Add to Favourites</Button>
     </Card>
   );
 }

@@ -17,6 +17,7 @@ const AppContextProvider = ({children}) =>{
     const [favourites, setFavourites] = useState([]);
 
     const addToFavourites = (book) => {
+        console.log(book)
         const oldFavourites = [...favourites];
 
         const newFavourites = oldFavourites.concat(book)

@@ -11,7 +11,7 @@ const BookList = () => {
 
   const {favourites, addToFavourites, removeFromFavourites} = useAppContext()
 
-
+  // console.log(favourites)
 
   useEffect(() => {
     axios
