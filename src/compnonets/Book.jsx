@@ -6,15 +6,33 @@ import * as React from "react";
 
 export default function Book(props) {
   return (
-    <Card sx={{marginTop:10 }}>
-      <Typography sx={{textAlign:"center", maxWidth:250}} >{props.book.title}</Typography>
+    <Card sx={{ marginTop: 10 }}>
+      <Typography sx={{ textAlign: "center", maxWidth: 250 }}>
+        {props.book.title}
+      </Typography>
       <CardMedia
-        sx={{ width: 250,
-  height: 300, transition: "all 0.2s ease", "&:hover": {transform: "scale(1.1)"} }}
+        sx={{
+          width: 250,
+          height: 300,
+          transition: "all 0.2s ease",
+          "&:hover": { transform: "scale(1.1)" },
+        }}
         image={props.book.image_url}
         alt="book-image"
+        onClick={() => props.navigate(`/book/${props.book.id}`)}
       ></CardMedia>
-      <Button onClick={()=>props.addToFavourites(props.book)} size="small">Add to Favourites</Button>
+      {props.favouriteChecker(props.book.id) ? (
+        <Button
+          onClick={() => props.removeFromFavourites(props.book.id)}
+          size="small"
+        >
+          Remove from Favourites
+        </Button>
+      ) : (
+        <Button onClick={() => props.addToFavourites(props.book)} size="small">
+          Add to Favourites
+        </Button>
+      )}
     </Card>
   );
 }
